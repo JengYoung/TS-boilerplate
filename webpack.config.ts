@@ -6,9 +6,12 @@ import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import ESLintPlugin from "eslint-webpack-plugin";
 import MiniCSSExtractPlugin from 'mini-css-extract-plugin';
 
-const isDevelopment = process.env.NODE_ENV === 'development';
+const MODE_DEVELOPMENT = 'development';
+const MODE_PRODUCTION = 'production'
+const isDevelopment = process.env.NODE_ENV === MODE_DEVELOPMENT;
+
 const config: Configuration = {
-  mode: "development",
+  mode: isDevelopment ? MODE_DEVELOPMENT : MODE_PRODUCTION,
   output: {
     publicPath: "/",
   },
@@ -26,6 +29,7 @@ const config: Configuration = {
               "@babel/preset-react",
               "@babel/preset-typescript",
             ],
+            plugins: [isDevelopment && require.resolve('react-refresh/babel')].filter(Boolean),
           },
         },
       },
@@ -42,14 +46,20 @@ const config: Configuration = {
     new HtmlWebpackPlugin({
       template: "./index.html",
     }),
-    new HotModuleReplacementPlugin(),
     new ForkTsCheckerWebpackPlugin({
       async: false
     }),
     new ESLintPlugin({
       extensions: ["tsx", "ts", "js"],
     }),
-    ...(isDevelopment ? [] : [new MiniCSSExtractPlugin()])
+    ...(isDevelopment 
+      ? [
+        new HotModuleReplacementPlugin()
+      ] 
+      : [
+        new MiniCSSExtractPlugin()
+      ]
+    )
   ],
   devtool: "inline-source-map",
   devServer: {

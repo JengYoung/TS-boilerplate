@@ -6,8 +6,8 @@
   "author": "Jengyoung <young_pallete@naver.com>",
   "license": "MIT",
   "dependencies": {
-    "@emotion/css": "^11.5.0",
     "@emotion/react": "^11.6.0",
+    "@emotion/styled": "^11.6.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
@@ -24,6 +24,7 @@
     "@babel/runtime": "^7.16.3",
     "@emotion/babel-plugin": "^11.3.0",
     "@emotion/babel-preset-css-prop": "^11.2.0",
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.1",
     "@types/fork-ts-checker-webpack-plugin": "^0.4.5",
     "@types/mini-css-extract-plugin": "^2.4.0",
     "@types/react": "^17.0.34",
@@ -41,6 +42,7 @@
     "fork-ts-checker-webpack-plugin": "^6.4.0",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.4.4",
+    "react-refresh": "^0.11.0",
     "style-loader": "^3.3.1",
     "ts-node": "^10.4.0",
     "typescript": "^4.4.4",

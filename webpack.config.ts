@@ -4,7 +4,9 @@ import { Configuration, HotModuleReplacementPlugin } from "webpack";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import ESLintPlugin from "eslint-webpack-plugin";
+import MiniCSSExtractPlugin from 'mini-css-extract-plugin';
 
+const isDevelopment = process.env.NODE_ENV === 'development';
 const config: Configuration = {
   mode: "development",
   output: {
@@ -27,6 +29,10 @@ const config: Configuration = {
           },
         },
       },
+      {
+        test: /\.css?$/,
+        use: [...(isDevelopment ? ['style-loader'] : [MiniCSSExtractPlugin.loader] ), 'css-loader'],
+      },
     ],
   },
   resolve: {
@@ -43,6 +49,7 @@ const config: Configuration = {
     new ESLintPlugin({
       extensions: ["tsx", "ts", "js"],
     }),
+    ...(isDevelopment ? [] : [new MiniCSSExtractPlugin()])
   ],
   devtool: "inline-source-map",
   devServer: {

@@ -6,10 +6,10 @@
   "author": "Jengyoung <young_pallete@naver.com>",
   "license": "MIT",
   "dependencies": {
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "@emotion/css": "^11.5.0",
     "@emotion/react": "^11.6.0",
-    "@emotion/styled": "^11.6.0"
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   },
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack serve --config webpack.config.ts",
@@ -22,6 +22,8 @@
     "@babel/preset-react": "^7.16.0",
     "@babel/preset-typescript": "^7.16.0",
     "@babel/runtime": "^7.16.3",
+    "@emotion/babel-plugin": "^11.3.0",
+    "@emotion/babel-preset-css-prop": "^11.2.0",
     "@types/fork-ts-checker-webpack-plugin": "^0.4.5",
     "@types/mini-css-extract-plugin": "^2.4.0",
     "@types/react": "^17.0.34",

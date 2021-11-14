@@ -1,9 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
+import styled from '@emotion/styled';
+
+const HelloEmotion = styled.h1`
+  color: red;
+`;
+
 const App = () => {
   return (
-    <h1>My React and TypeScript App!{new Date().toLocaleDateString()}</h1>
+    <HelloEmotion>My React and TypeScript App!{new Date().toLocaleDateString()}</HelloEmotion>
   )
 };
 

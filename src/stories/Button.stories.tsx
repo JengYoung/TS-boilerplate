@@ -11,6 +11,6 @@ export default {
   argTypes: {},
 };
 
-const Template = () => <Button>Test!</Button>;
+const Template = () => <Button>HI!</Button>;
 
 export const Default = Template.bind({});

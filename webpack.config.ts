@@ -5,6 +5,8 @@ import HtmlWebpackPlugin from "html-webpack-plugin";
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import ESLintPlugin from "eslint-webpack-plugin";
 import MiniCSSExtractPlugin from 'mini-css-extract-plugin';
+import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin"
+
 
 const MODE_DEVELOPMENT = 'development';
 const MODE_PRODUCTION = 'production'
@@ -54,7 +56,8 @@ const config: Configuration = {
     }),
     ...(isDevelopment 
       ? [
-        new HotModuleReplacementPlugin()
+        new HotModuleReplacementPlugin(),
+        new ReactRefreshWebpackPlugin()  
       ] 
       : [
         new MiniCSSExtractPlugin()
@@ -69,6 +72,12 @@ const config: Configuration = {
     open: true,
     hot: true
   },
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+    },
+    minimize: true,
+  }
 };
 
 export default config;

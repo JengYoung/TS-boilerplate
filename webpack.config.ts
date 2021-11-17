@@ -72,6 +72,12 @@ const config: Configuration = {
     open: true,
     hot: true
   },
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+    },
+    minimize: true,
+  }
 };
 
 export default config;

@@ -70,13 +70,7 @@ const config: Configuration = {
     compress: true,
     open: true,
     hot: true,
-  },
-  optimization: {
-    splitChunks: {
-      chunks: 'all',
-    },
-    minimize: true,
-  },
+  }
 };
 
 export default config;
